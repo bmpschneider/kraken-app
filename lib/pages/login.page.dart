@@ -1,6 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:krakenapp/stores/login_store.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
+
+  @override
+  _LoginPageState createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+
+  LoginStore loginStore = LoginStore();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,6 +42,7 @@ class LoginPage extends StatelessWidget {
                   fontSize: 20,
                 ),
               ),
+              onChanged: loginStore.setEmail,
               style: TextStyle(
                 fontSize: 20,
                 color: Colors.black,
@@ -52,6 +63,7 @@ class LoginPage extends StatelessWidget {
                   fontSize: 20,
                 ),
               ),
+              onChanged: loginStore.setPassword,
             ),
             Container(
               height: 40,
